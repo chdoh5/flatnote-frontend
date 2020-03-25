@@ -7,6 +7,42 @@ import { Table, Segment } from 'semantic-ui-react'
 
 class NotesContainer extends React.Component {
 
+
+
+renderNotes = () => {
+    return this.props.notes.map(note => {
+       return <Note note={note} />
+    })
+}
+
+render(){
+    
+
+    return(
+        <Table className="bigtester" celled selectable  >
+       {this.renderNotes()}
+        </Table>
+    )
+}
+    
+}
+
+export default NotesContainer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //     render(){
 //         return(
 // <Segment>
@@ -27,23 +63,3 @@ class NotesContainer extends React.Component {
 //   </Segment>
 //         )
 //     })
-
-render(){
-    
-
-    return(
-        <Table className="bigtester" celled selectable  >
-        <Note />
-        <Note />
-        <Note />
-        <Note />
-        <Note />
-        <Note />
-        </Table>
-
-    )
-}
-    
-}
-
-export default NotesContainer

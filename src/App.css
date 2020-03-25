@@ -41,7 +41,7 @@
 }
 
 #first {
-  width: 25%
+  width: 25%;
 }
 
 .ui.table thead tr:first-child>th:last-child  {

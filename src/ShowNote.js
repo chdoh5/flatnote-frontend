@@ -5,7 +5,7 @@ import { Container, Header } from 'semantic-ui-react'
 const ShowNote = () => (
   <Container text>
     <Header id="show-note-title" as='h2'>Header</Header>
-    <p>
+    <p >
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
       ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
       magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
