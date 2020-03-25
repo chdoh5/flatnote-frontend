@@ -8,8 +8,8 @@ const SearchMenu = () => (
     <Menu attached='top'>
       <Dropdown item icon='wrench' simple>
         <Dropdown.Menu>
-          <Dropdown.Item>Open</Dropdown.Item>
-          <Dropdown.Item>Save...</Dropdown.Item>
+          <Dropdown.Item>New Note</Dropdown.Item>
+          <Dropdown.Item>Logout</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 

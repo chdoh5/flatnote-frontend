@@ -40,13 +40,26 @@
   width: 25%;
 }
 
+#first {
+  width: 25%
+}
+
 .ui.table thead tr:first-child>th:last-child  {
-  width: 60%;
+  width: 60% !important;
+}
+
+#third{
+  width: 60%
 }
 
 .ui.celled.table tr td, .ui.celled.table tr th {
   width: 5%
 }
+
+#second {
+  width: 5%;
+}
+
 
 .ui.table.bigtester {
   display:block;
@@ -66,4 +79,8 @@
 }
 .fixed_header thead tr{
   display:block;
+}
+
+#show-note-title {
+  padding: 10px;
 }
