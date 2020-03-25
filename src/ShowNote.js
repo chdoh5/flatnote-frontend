@@ -7,7 +7,7 @@ class ShowNote extends React.Component {
   renderTags = () => {
     if(this.props.showNote.tags)
       return this.props.showNote.tags.map(tag => {
-        return <h5>{tag.name}</h5>
+        return <h5>#{tag.name}</h5>
     })
   }
   
