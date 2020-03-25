@@ -11,7 +11,7 @@ class NotesContainer extends React.Component {
 
 renderNotes = () => {
     return this.props.notes.map(note => {
-       return <Note note={note} />
+       return <Note note={note} handleClick={this.props.handleClick} />
     })
 }
 

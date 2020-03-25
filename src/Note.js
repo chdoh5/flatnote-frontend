@@ -14,7 +14,7 @@ class Note extends React.Component {
 
 
             <Table.Body>
-            <Table.Row>
+            <Table.Row onClick={() => {this.props.handleClick(this.props.note)}}>
               <Table.Cell id="first">{this.props.note.title}</Table.Cell>
               <Table.Cell id="second" >{date}</Table.Cell>
               <Table.Cell id="third">{this.props.note.content}</Table.Cell>

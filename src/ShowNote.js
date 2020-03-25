@@ -2,38 +2,41 @@ import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
 
 
-const ShowNote = () => (
-  <Container text>
-    <Header id="show-note-title" as='h2'>Header</Header>
-    <p >
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-      quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-      arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-      Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-      dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-      Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-      Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-      viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-      Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-      quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-      arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-      Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-      dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-      Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-      Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-      viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-      Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-    </p>
+class ShowNote extends React.Component {
+
+  renderTags = () => {
+    if(this.props.showNote.tags)
+      return this.props.showNote.tags.map(tag => {
+        return <h5>{tag.name}</h5>
+    })
+  }
+  
+  renderNote = () => {
+    if(this.props.showNote.title){
+      return <div ><Header style={{paddingLeft:'0px'}} id="show-note-title" as='h2'>{this.props.showNote.title}</Header>
+      <p >{this.props.showNote.content}</p>
+      <h3>Tags:</h3>
+      <div>{this.renderTags()}</div>
+      </div>
+    } else{
+      return <h1 style={{textAlign:'left'}} id="show-note-title">Welcome to Flatnote!</h1>
+    }
+
+  }
+
+  render(){
+   
+    return(
+<Container >
+
+    {this.renderNote()}
   </Container>
-)
+
+
+    )
+  }
+
+  
+}
 
 export default ShowNote

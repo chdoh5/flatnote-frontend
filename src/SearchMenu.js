@@ -12,14 +12,14 @@ const SearchMenu = () => (
           <Dropdown.Item>Logout</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-
+    <h4 style={{paddingLeft: '30px'}}>FLATNOTE</h4>
       <Menu.Menu position='right'>
         <div className='ui right aligned category search item'>
           <div className='ui transparent icon input'>
             <input
               className='prompt'
               type='text'
-              placeholder='Search animals...'
+              placeholder='Search Notes...'
             />
             <i className='search link icon' />
           </div>

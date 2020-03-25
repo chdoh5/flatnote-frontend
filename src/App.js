@@ -10,7 +10,8 @@ class App extends React.Component {
     super()
 
     this.state = {
-      notes: []
+      notes: [],
+      showNote: {}
     }
   }
 
@@ -22,13 +23,19 @@ class App extends React.Component {
       }))
   }
 
+  handleClick = (note) => {
+    this.setState({
+      showNote: note
+    })
+  }
+
   render() {
 
     return (
       <div >
       <div><SearchMenu /></div>
-      <div><NotesContainer notes={this.state.notes} /></div>
-      <div><ShowNote /></div>
+      <div><NotesContainer handleClick={this.handleClick} notes={this.state.notes} /></div>
+      <div><ShowNote showNote={this.state.showNote} /></div>
       </div>
     )
   }
