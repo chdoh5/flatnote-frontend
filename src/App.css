@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,35 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.ui.celled.table tr th:first-child {
+  width: 25%;
+}
+
+.ui.table thead tr:first-child>th:last-child  {
+  width: 60%;
+}
+
+.ui.celled.table tr td, .ui.celled.table tr th {
+  width: 5%
+}
+
+.ui.table.bigtester {
+  display:block;
+  overflow:auto;
+  height: 200px;
+  width: 100%;
+}
+.id {
+  font-size: 40;
+}
+
+.fixed_header {
+  display:block;
+  overflow:auto;
+  height:100px;
+  width:100%;
+}
+.fixed_header thead tr{
+  display:block;
 }

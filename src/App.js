@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import SearchMenu from './SearchMenu'
+import NotesContainer from './NotesContainer'
 
 function App() {
   return (
-    <div className="App">
+    <div >
     <div><SearchMenu /></div>
-     
+     <div><NotesContainer  /></div>
     </div>
   );
 }
