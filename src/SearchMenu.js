@@ -1,19 +1,39 @@
 import React from 'react'
 import { Dropdown, Icon, Menu, Segment } from 'semantic-ui-react'
+import NewNote from './NewNote'
 
 // TODO: Update <Search> usage after its will be implemented
 
 class SearchMenu extends React.Component {
 
+  constructor(){
+    super()
+
+    this.state = {
+      clicked: false
+    }
+  }
+
+isClicked = () => {
+  this.setState({
+    clicked: !this.state.clicked
+  })
+}
+
 
   render(){
-
+const clicked = this.state.clicked
     return(
       <div>
           <Menu attached='top'>
             <Dropdown item icon='wrench' simple>
               <Dropdown.Menu>
-                <Dropdown.Item>New Note</Dropdown.Item>
+                <Dropdown.Item onClick={() => {
+                    this.props.addNote();
+                    this.isClicked()
+                    }}>
+                  {clicked ? 'Back to Dashboard' : 'New Note'}
+                </Dropdown.Item>
                 <Dropdown.Item>Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

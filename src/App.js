@@ -4,6 +4,7 @@ import SearchMenu from './SearchMenu'
 import NotesContainer from './NotesContainer'
 import ShowNote from './ShowNote'
 import Login from './Login'
+import NewNote from './NewNote'
 
 class App extends React.Component {
 
@@ -16,6 +17,7 @@ class App extends React.Component {
       showNote: {}, 
       loginInput: '',
       user: {}, 
+      clicked: false
     }
   }
 
@@ -57,34 +59,6 @@ class App extends React.Component {
       })
   }
 
-  // saveEdit = () => {
-  //   const reqObj = {
-  //     method: 'PATCH',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(this.state.editPizza)
-  //   }
-
-  //   fetch(`http://localhost:3000/pizzas/${this.state.editPizza.id}`, reqObj)
-  //     .then(resp => resp.json())
-  //     .then(updatedPizza => {
-  //       // map over this.state.pizzas and swap out the editpizza that just got updated
-  //       const newPizzas = this.state.pizzas.map(pizza => {
-  //         if (pizza.id === updatedPizza.id) {
-  //           return updatedPizza
-  //         } else {
-  //           return pizza
-  //         }
-  //       })
-
-  //       this.setState({
-  //         pizzas: newPizzas
-  //       })
-
-  //     })
-  // }
-
 
   handleClick = (note) => {
     this.setState({
@@ -105,6 +79,21 @@ handleSearch = (e) => {
   })
 }
 
+addNote = (note) => {
+  this.setState({
+    
+    clicked: !this.state.clicked,
+    showNote: note,
+    filtered: [...this.state.notes, note]
+    
+  })
+  this.setState({
+    notes: this.state.notes
+  })
+  
+
+}
+
   render() {
     if(!this.state.user.id){
       return(
@@ -112,11 +101,19 @@ handleSearch = (e) => {
           <Login handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
         </div>
       )
+    } else if(this.state.clicked === true){
+      return(
+        <div>
+          <SearchMenu addNote={this.addNote} />
+          <NewNote addNote={this.addNote} user={this.state.user}/>
+        </div>
+      )
     } else {
+      const myNotes = this.state.filtered.filter(note => note.user_id === this.state.user.id)
 
       return (
         <div >
-        <div><SearchMenu handleSearch={this.handleSearch}/></div>
+        <div><SearchMenu addNote={this.addNote} handleSearch={this.handleSearch}/></div>
         <div><NotesContainer handleClick={this.handleClick} notes={this.state.filtered} user={this.state.user} /></div>
         <div><ShowNote showNote={this.state.showNote} /></div>
         </div>
