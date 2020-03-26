@@ -8,10 +8,8 @@ class Note extends React.Component {
 
         const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
         const date = new Date(this.props.note.created_at).toLocaleDateString('en-US', DATE_OPTIONS)
-
-        return(
-
-
+        
+          return(
 
             <Table.Body>
             <Table.Row onClick={() => {this.props.handleClick(this.props.note)}}>
@@ -21,6 +19,9 @@ class Note extends React.Component {
             </Table.Row>
           </Table.Body>
         )
+
+        
+
     }
   
 
