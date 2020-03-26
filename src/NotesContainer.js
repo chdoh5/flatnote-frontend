@@ -10,8 +10,10 @@ class NotesContainer extends React.Component {
 
 
 renderNotes = () => {
-    return this.props.notes.map(note => {
-       return <Note note={note} handleClick={this.props.handleClick} />
+    const myNotes = this.props.notes.filter(note => note.user_id === this.props.user.id)
+    console.log(myNotes)
+    return myNotes.map(note => {
+       return <Note note={note} handleClick={this.props.handleClick} user={this.props.user} />
     })
 }
 
